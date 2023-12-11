@@ -9,7 +9,23 @@ export KBUILD_BUILD_HOST="localhost"
 export KBUILD_BUILD_USER="rad"
 git clone --depth=1 https://github.com/kdrag0n/proton-clang "${HOME}/clang-proton"
 
+#remove Any kernel-file
 rm -rf AnyKernel
+
+# Delete old KernelSU
+if [ -d "./KernelSU" ]; then
+ rm -rf "./KernelSU"
+fi
+if [ -d "./drivers/kernelsu" ]; then
+ rm -rf "./drivers/kernelsu"
+fi
+
+# Apply new KernelSU patches
+curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s main
+echo -e "CONFIG_KPROBES=y" arch/arm64/configs/rad_defconfig
+echo -e "CONFIG_HAVE_KPROBES=y" arch/arm64/configs/rad_defconfig
+echo -e "CONFIG_KPROBES_EVENTS=y" arch/arm64/configs/rad_defconfig
+
 make O=out ARCH=arm64 rad_defconfig
 
 PATH="${HOME}/clang-proton/bin:${PATH}" \
@@ -25,8 +41,8 @@ function zupload()
 git clone --depth=1 https://github.com/clyfly/AnyKernel3.git -b master AnyKernel
 cp out/arch/arm64/boot/Image.gz AnyKernel
 cd AnyKernel
-zip -r9 [R]Focalor-rad.zip *
-curl -T [R]Focalor-rad.zip oshi.at && curl -T [R]Focalor-rad.zip temp.sh
+zip -r9 Focalor-rad.zip *
+curl -T Focalor-rad.zip oshi.at && curl -T Focalor-rad.zip temp.sh
 }
 
 compile
