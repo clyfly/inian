@@ -25,8 +25,8 @@ function zupload()
 git clone --depth=1 https://github.com/clyfly/AnyKernel3.git -b master AnyKernel
 cp out/arch/arm64/boot/Image.gz AnyKernel
 cd AnyKernel
-zip -r9 Focalor-rad.zip *
-curl -T Focalor-rad.zip oshi.at && curl -T Focalor-rad.zip temp.sh
+zip -r9 [R]Focalor-rad.zip *
+curl -T [R]Focalor-rad.zip oshi.at && curl -T [R]Focalor-rad.zip temp.sh
 }
 
 compile
