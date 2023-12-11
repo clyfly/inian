@@ -30,8 +30,8 @@ err()
 }
 
 # Check telegtam token/id
-export TELEGRAM_TOKEN="6643268593:AAGqea2_7-30ckbeqYjwv88onD9AtvEo3HU"
-export TELEGRAM_CHAT="-1001949339392"
+export TELEGRAM_TOKEN=""
+export TELEGRAM_CHAT=""
 
 if [ -z "$TELEGRAM_TOKEN" ] || [ -z "$TELEGRAM_CHAT" ]
 then
