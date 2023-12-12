@@ -1,6 +1,6 @@
 #!/bin/bash
 # Copyright cc 2023 sirnewbies
-#Edited By Denwah/Radinka
+# Edited By Denwah/Radinka
 # Before u compile make sure u have the proton clang on your directory and make path on that!!
 
 # setup color
@@ -15,6 +15,7 @@ KERN_IMG="${WORK_DIR}/out/arch/arm64/boot/Image-gz.dtb"
 KERN_IMG2="${WORK_DIR}/out/arch/arm64/boot/Image.gz"
 
 function clean() {
+    sudo apt install figlet toilet -y
     echo -e "\n"
     echo -e "$red << cleaning up >> \n$white"
     echo -e "\n"
@@ -41,16 +42,16 @@ function build_kernel() {
 
 function zupload()
 {
-git clone --depth=1 https://github.com/clyfly/AnyKernel3.git -b master AnyKernel
-cp out/arch/arm64/boot/Image.gz AnyKernel
-cd AnyKernel
-zip -r9 Focalor-rad.zip *
-curl -T Focalor-rad.zip oshi.at && curl -T Focalor-rad.zip temp.sh
+    git clone --depth=1 https://github.com/clyfly/AnyKernel3.git -b master AnyKernel
+    cp out/arch/arm64/boot/Image.gz AnyKernel
+    cd Anykernel
+    zip -r9 mykernel.zip *
+    curl -T mykernel.zip oshi.at && curl -T mykernel.zip temp.sh
 }
 
 function fun()
 {
-figlet -c "Rad Kernel Compiled"
+    toilet -f future "Rad Kernel Compiled"
 }
 # execute
 clean
