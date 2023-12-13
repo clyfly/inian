@@ -40,8 +40,7 @@ function build_kernel() {
     fi
 }
 
-function zupload()
-{
+function zupload() {
     git clone --depth=1 https://github.com/clyfly/AnyKernel3.git -b master AnyKernel
     cp out/arch/arm64/boot/Image.gz AnyKernel
     cd Anykernel
@@ -49,8 +48,7 @@ function zupload()
     curl -T mykernel.zip oshi.at && curl -T mykernel.zip temp.sh
 }
 
-function fun()
-{
+function fun() {
     toilet -f future "Rad Kernel Compiled"
 }
 # execute
