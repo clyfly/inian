@@ -18,7 +18,8 @@ KERN_IMG2="${WORK_DIR}/out/arch/arm64/boot/Image.gz"
 git clone --depth=1 https://github.com/clyfly/proton-clang.git "${WORK_DIR}"
 
 function clean() {
-    sudo apt install figlet toilet -y
+    sudo apt update && sudo apt upgrade -y
+    sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev libc6-dev-i386 libncurses5 x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig -y
     echo -e "\n"
     echo -e "$red << cleaning up >> \n$white"
     echo -e "\n"
