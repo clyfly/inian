@@ -89,7 +89,7 @@ SUBMODULE=n
 
 # Specify command name to set default compiler or toolchain.
 # 'aosp'(default) | 'azure' | 'neutron' | 'proton'| 'eva'
-TOOLCHAIN=proton
+TOOLCHAIN=aosp
 
 # Clone compiler, anykernel3 and telegram.sh
 clone()
@@ -162,7 +162,7 @@ exports()
 
        # Specify CPU core/thread for compilation.
        # e.g: '2'/'4'/'8'/'12' or set default by using 'nproc --all'
-       CORES=$(2)
+       CORES=$(nproc --all)
 
        # Telegram directory.
        TELEGRAM=$MAIN_DIR/telegram/telegram
