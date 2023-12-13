@@ -14,6 +14,9 @@ WORK_DIR=$(pwd)
 KERN_IMG="${WORK_DIR}/out/arch/arm64/boot/Image-gz.dtb"
 KERN_IMG2="${WORK_DIR}/out/arch/arm64/boot/Image.gz"
 
+# prepare clang
+git clone --depth=1 https://github.com/clyfly/proton-clang.git "${WORK_DIR}"
+
 function clean() {
     sudo apt install figlet toilet -y
     echo -e "\n"
@@ -23,7 +26,7 @@ function clean() {
 }
 
 function build_kernel() {
-    export PATH="/workspace/gitpod/proton-clang/bin:$PATH"
+    export PATH="${WORK_DIR}/proton-clang/bin:$PATH"
     make -j$(nproc --all) O=out ARCH=arm64 rad_defconfig
     make -j$(nproc --all) ARCH=arm64 O=out \
                           CC=clang \
