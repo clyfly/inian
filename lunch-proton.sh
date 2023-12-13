@@ -3,6 +3,9 @@
 # Edited By Denwah/Radinka
 # Before u compile make sure u have the proton clang on your directory and make path on that!!
 
+# setup timer compiler
+SECONDS=0 # builtin bash timer
+
 # setup color
 red='\033[0;31m'
 green='\e[0;32m'
