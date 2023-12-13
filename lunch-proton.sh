@@ -15,7 +15,7 @@ KERN_IMG="${WORK_DIR}/out/arch/arm64/boot/Image-gz.dtb"
 KERN_IMG2="${WORK_DIR}/out/arch/arm64/boot/Image.gz"
 
 # prepare clang
-git clone --depth=1 https://github.com/clyfly/proton-clang.git "${WORK_DIR}"
+git clone --depth=1 https://github.com/clyfly/proton-clang.git "${WORK_DIR}/tool-chain"
 
 function clean() {
     sudo apt update && sudo apt upgrade -y
@@ -27,7 +27,7 @@ function clean() {
 }
 
 function build_kernel() {
-    export PATH="${WORK_DIR}/proton-clang/bin:$PATH"
+    export PATH="${WORK_DIR}/tool-chain/bin:$PATH"
     make -j$(nproc --all) O=out ARCH=arm64 rad_defconfig
     make -j$(nproc --all) ARCH=arm64 O=out \
                           CC=clang \
