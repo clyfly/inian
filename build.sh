@@ -215,14 +215,15 @@ send_zip()
     cd AnyKernel3
     ZIPFILE=$(echo *.zip)
     SHA1=$(sha1sum "$ZIPFILE" | cut -d' ' -f1)
-    send_file "$ZIPFILE" "✅ Build took : $((DIFF / 60)) minute(s) and $((DIFF % 60)) second(s) for $DEVICE_CODENAME | SHA1 : <code>$SHA1</code>"
+    send_file "$ZIPFILE" "🐬 Compile Kernel Berhasil Dalam waktu: 
+    $((DIFF / 60)) minute(s) and $((DIFF % 60)) second(s) for $DEVICE_CODENAME | SHA1 : <code>$SHA1</code>"
 }
 
 # Function for upload error log during compiled.
 send_log()
 {
     ERROR_LOG=$(echo error.log)
-    send_file "$ERROR_LOG" "❌ Build failed to compile, Please check log to fix it!"
+    send_file "$ERROR_LOG" "🔥 Build Gagal, Please check log to fix it!"
     exit 1
 }
 
@@ -230,15 +231,15 @@ send_log()
 compile()
 {
      BUILD_START=$(date +"%s")
-     send_msg "<b>============================================</b>" \
-        "<b>• DATE :</b> <code>$(TZ=Asia/Jakarta date +"%A, %d %b %Y, %H:%M:%S")</code>" \
-        "<b>• DEVICE :</b> <code>$DEVICE_MODEL [$DEVICE_CODENAME]</code>" \
-        "<b>• KERNEL NAME :</b> <code>$KERNEL_NAME</code>" \
-        "<b>• LINUX VERSION :</b> <code>$SUBLEVEL</code>" \
-        "<b>• BRANCH NAME :</b> <code>$BRANCH</code>" \
+     send_msg "<b>============================</b>" \
+        "<b>• WAKTU :</b> <code>$(TZ=Asia/Jakarta date +"%A, %d %b %Y, %H:%M:%S")</code>" \
+        "<b>• PERANGKAT :</b> <code>$DEVICE_MODEL [$DEVICE_CODENAME]</code>" \
+        "<b>• NAMA KERNEL :</b> <code>$KERNEL_NAME</code>" \
+        "<b>• LINUX TAGS :</b> <code>$SUBLEVEL</code>" \
+        "<b>• CABANG :</b> <code>$BRANCH</code>" \
         "<b>• COMPILER :</b> <code>$COMPILER</code>" \
-        "<b>• LAST COMMIT :</b> <code>$(git log --pretty=format:'%s' -1)</code>" \
-        "<b>============================================</b>" \
+        "<b>• COMMIT TERAKHIR :</b> <code>$(git log --pretty=format:'%s' -1)</code>" \
+        "<b>============================</b>" \
 
      if [ "$TOOLCHAIN" = "aosp" ]
      then
