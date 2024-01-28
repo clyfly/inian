@@ -5,6 +5,9 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 # Clone Device tree
 git clone https://github.com/Sicantik-Hanya-Gabut/DT.git -b rad device/xiaomi/rosemary
 
+# Cleaning Kernel tree
+cd kernel/xiaomi/rosemary && make clean && cd../../../
+
 # build rom
 source build/envsetup.sh
 lunch lineage_rosemary-user
