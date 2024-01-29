@@ -59,13 +59,13 @@ ARCH=arm64
 
 # Set device defconfig name.
 # e.g: 'begonia_user_defconfig'
-DEVICE_DEFCONFIG=rad_defconfig
+DEVICE_DEFCONFIG=roseamry_defconfig
 
 # Set default image files/artifacts.
 IMAGE=Image.gz-dtb
 
 # Specify kernel name for ZIP name
-KERNEL_NAME="Focalor-Rosemary"
+KERNEL_NAME="skyline-mtk"
 
 # Check kernel version.
 SUBLEVEL=$(make kernelversion)
@@ -97,7 +97,7 @@ clone()
      if [ "$TOOLCHAIN" = "aosp" ]
      then
           msg "Clone latest aosp clang toolchain"
-          wget https://github.com/ZyCromerZ/Clang/releases/download/18.0.0-20231125-release/Clang-18.0.0-20231125.tar.gz -O "aosp-clang.tar.gz"
+          wget https://github.com/ZyCromerZ/Clang/releases/download/19.0.0git-20240129-release/Clang-19.0.0git-20240129.tar.gz -O "aosp-clang.tar.gz"
           mkdir clang-llvm && tar -xf aosp-clang.tar.gz -C clang-llvm && rm -rf aosp-clang.tar.gz
           git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 -b lineage-19.1 gcc64
           git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 -b lineage-19.1 gcc32
