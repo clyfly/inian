@@ -1,5 +1,5 @@
 # sync rom
-repo init -u https://github.com/HorizonDroid-13/manifest.git -b 13
+repo init -u https://github.com/HorizonDroid-13/manifest.git -b 13 --depth=1
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 
 # Clone Device tree
