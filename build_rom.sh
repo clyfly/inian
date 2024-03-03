@@ -1,12 +1,12 @@
 # sync rom
-repo init -u https://github.com/HorizonDroid-13/manifest.git -b 13 --depth=1
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+repo init -u https://github.com/CherishOS/android_manifest.git -b eleven  --depth=1
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j4
 
 # Clone Device tree
-git clone https://github.com/Sicantik-Hanya-Gabut/XYZ-DT -b linear device/xiaomi/rosemary
+git clone -b 11 https://github.com/heyradrepo/local_manifests .repo/local_manifests
 
 # build rom
 . build/envsetup.sh
-lunch aosp_rosemary-user
+lunch cherish_rosemary-userdebug
 export TZ=Asia/Jakarta #put before last build command
-make bacon
+brunch rosemary userdebug
